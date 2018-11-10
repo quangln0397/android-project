@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Your Profile"/>
+
+    <item
+        android:id="@+id/navigation_exercises"
+        android:icon="@drawable/ic_exercises"
+        android:title="Exercises"/>
+
+    <item
+        android:id="@+id/navigation_nutritition"
+        android:icon="@drawable/ic_food"
+        android:title="Nutritition "/>
+    <item
+        android:id="@+id/navigation_chart"
+        android:icon="@drawable/ic_chart"
+        android:title="Statistics"/>
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more"
+        android:title="More"/>
+</menu>
