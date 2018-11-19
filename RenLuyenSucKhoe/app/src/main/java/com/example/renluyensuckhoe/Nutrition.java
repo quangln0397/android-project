@@ -3,10 +3,17 @@ package com.example.renluyensuckhoe;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+
+import com.example.renluyensuckhoe.thuc_pham.chuoi;
+import com.example.renluyensuckhoe.thuc_pham.dau_phong;
 
 
 /**
@@ -26,7 +33,8 @@ public class Nutrition extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    private chuoi chuoi_fra;
+    private dau_phong dau_phong_fra;
     private OnFragmentInteractionListener mListener;
 
     public Nutrition() {
@@ -61,10 +69,34 @@ public class Nutrition extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nutrition, container, false);
+        View view = inflater.inflate(R.layout.fragment_nutrition, container, false);
+        ImageButton ib_chuoi = (ImageButton)view.findViewById(R.id.ib_1);
+        chuoi_fra = new chuoi();
+        ImageButton ib_dau_phong = (ImageButton)view.findViewById(R.id.ib_2);
+        dau_phong_fra = new dau_phong();
+        ib_chuoi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container,chuoi_fra);
+                fragmentTransaction.commit();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.popBackStack();
+
+            }
+        });
+        ib_dau_phong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container,dau_phong_fra);
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -105,4 +137,5 @@ public class Nutrition extends Fragment {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

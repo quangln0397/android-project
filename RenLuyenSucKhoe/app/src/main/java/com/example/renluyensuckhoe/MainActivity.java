@@ -4,13 +4,15 @@ package com.example.renluyensuckhoe;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+
 
 public class MainActivity extends AppCompatActivity implements Exercises.OnFragmentInteractionListener,Profile.OnFragmentInteractionListener,Nutrition.OnFragmentInteractionListener,More.OnFragmentInteractionListener,Statistics.OnFragmentInteractionListener {
 
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements Exercises.OnFragm
         nutrition_fragment = new Nutrition();
         chart_fragment = new Statistics();
         more_fragment = new More();
-       // transaction.replace(R.id.container, exercises_fragment);//với container là id của framelayout trong xml
+        //transaction.replace(R.id.container, exercises_fragment);//với container là id của framelayout trong xml
        // transaction.commit();
         setFragment(profile_fragment);
         bottomNavigation = (BottomNavigationView) findViewById(R.id.navigationView);
@@ -60,11 +62,11 @@ public class MainActivity extends AppCompatActivity implements Exercises.OnFragm
                         return true;
                     default: return false;
                 }
-
             }//khởi tạo một constructor(NavigationView và gọi đến phương thức constructor đó
 
 
         });
+
     }
     private void setFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

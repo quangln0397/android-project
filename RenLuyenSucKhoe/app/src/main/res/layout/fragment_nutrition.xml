@@ -1,14 +1,478 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fra_nu"
     tools:context=".Nutrition">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="CHE DO DINH DUONG" />
+        android:layout_height="match_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#008B00">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="MỘT SỐ THỰC PHẨM DINH DƯỠNG THIẾT YẾU"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="true"
+                        android:src="@drawable/chuoi" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Chuối thực phẩm tốt để giảm cân"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="true"
+                        android:src="@drawable/dau_phong" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Đậu phộng thực phẩm tốt cho việc giảm cân"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/ca_chua" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Cà chua làm đẹp da và giảm cân hiệu quả"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/dau_ha_lan" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Đậu hà lan hoàn hảo giúp giảm cân"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/bong_cai_xanh" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Bông cải xanh thực phẩm giàu Vitamin và chất xơ"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/dau_nanh" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Đậu nành không nên dùng nhiều"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_7"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/bo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Bơ thực phẩm giúp tăng cân hiệu quả"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_8"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/xa_lach" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Xà lách tốt cho da và giảm cân hiệu quả"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_9"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/trung" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Trứng bổ sung protein và lm đẹp da"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_10"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/thit_ga" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Thịt gà giàu protein và bổ sung nhiều Vitamin"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_11"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/thit_bo" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Thịt bò thực phẩm giàu protein ít chất béo"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_12"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/thit_cuu" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Thịt cừu giàu protein hổ trợ miễn dich tốt"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib_13"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/ca_ngu" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Thịt cá ngừ tốt cho việc giảm cân"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_corner"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/ib14"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/ic_launcher_background"
+                        android:backgroundTint="@color/colorgreen"
+                        android:cropToPadding="false"
+                        android:src="@drawable/ca_hoi" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:background="@color/colorgreen"
+                        android:gravity="center"
+                        android:text="Thịt cá hồi giàu protein tốt cho cơ bắp"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
