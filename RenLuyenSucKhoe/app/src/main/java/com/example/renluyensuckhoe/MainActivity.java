@@ -1,18 +1,20 @@
 package com.example.renluyensuckhoe;
 
 
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.view.View;
 import android.widget.ImageButton;
-
 
 public class MainActivity extends AppCompatActivity implements Exercises.OnFragmentInteractionListener,Profile.OnFragmentInteractionListener,Nutrition.OnFragmentInteractionListener,More.OnFragmentInteractionListener,Statistics.OnFragmentInteractionListener {
 
@@ -20,9 +22,15 @@ public class MainActivity extends AppCompatActivity implements Exercises.OnFragm
 
     private Exercises exercises_fragment;
     private Profile profile_fragment;
+   // private Profile_2 profile_fragment2;
     private Nutrition nutrition_fragment;
     private Statistics chart_fragment;
     private More more_fragment;
+
+
+    private TextView tvHoTen;
+    private TextView tvCanNang;
+    private TextView tvChieuCao;
 
     FragmentManager mn;
     @Override
@@ -33,11 +41,12 @@ public class MainActivity extends AppCompatActivity implements Exercises.OnFragm
         //fm = getSupportFragmentManager();
        // final FragmentTransaction transaction = fm.beginTransaction();
         profile_fragment = new Profile();
+       // profile_fragment2 = new Profile_2();
         exercises_fragment = new Exercises();
         nutrition_fragment = new Nutrition();
         chart_fragment = new Statistics();
         more_fragment = new More();
-        //transaction.replace(R.id.container, exercises_fragment);//với container là id của framelayout trong xml
+       // transaction.replace(R.id.container, exercises_fragment);//với container là id của framelayout trong xml
        // transaction.commit();
         setFragment(profile_fragment);
         bottomNavigation = (BottomNavigationView) findViewById(R.id.navigationView);
@@ -62,12 +71,28 @@ public class MainActivity extends AppCompatActivity implements Exercises.OnFragm
                         return true;
                     default: return false;
                 }
+
             }//khởi tạo một constructor(NavigationView và gọi đến phương thức constructor đó
 
 
         });
 
+
     }
+
+   /* private void layDuLieuTuPreferences()
+    {
+        tvHoTen = (TextView)findViewById(R.id.textViewHoTen);
+        tvCanNang = (TextView) findViewById(R.id.textViewCanNang);
+        tvChieuCao = (TextView) findViewById(R.id.textViewChieuCao);
+        SharedPreferences sharepr = MainActivity.this.getSharedPreferences("thongtin",0);
+        tvHoTen.setText(sharepr.getString("Name","..."));
+        //tvCanNang.setText(sharepr.getString("Weight","68"));
+        //tvCanNang.setText(sharepr.getString("Height","168"));
+
+
+    }*/
+
     private void setFragment(Fragment fragment){
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, fragment);

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="gioitinh">
+        <item>Nam</item>
+        <item>Nữ</item>
+    </string-array>
+    <string-array name="vandong">
+        <item> Không hoặc ít vận động</item>
+        <item>Vận động từ 1 - 3 lần/tuần</item>
+        <item>Vận động từ 3 - 5 lần/tuần</item>
+        <item>Vận động từ 6 - 7 lần/tuần</item>
+        <item>Vận động nặng hơn 7 lần/tuần</item>
+    </string-array>
+</resources>

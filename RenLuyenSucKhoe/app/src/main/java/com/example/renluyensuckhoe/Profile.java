@@ -1,12 +1,16 @@
 package com.example.renluyensuckhoe;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 
 /**
@@ -27,6 +31,10 @@ public class Profile extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TextView tvHoTen;
+    private TextView tvCanNang;
+    private TextView tvChieuCao;
+
     private OnFragmentInteractionListener mListener;
 
     public Profile() {
@@ -39,7 +47,7 @@ public class Profile extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Profile.
+     * @return A new instance of fragment Profile
      */
     // TODO: Rename and change types and number of parameters
     public static Profile newInstance(String param1, String param2) {
@@ -64,8 +72,35 @@ public class Profile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        tvHoTen = (TextView)view.findViewById(R.id.textViewHoTen);
+        tvCanNang = (TextView) view.findViewById(R.id.textViewCanNang);
+        tvChieuCao = (TextView) view.findViewById(R.id.textViewChieuCao);
+        SharedPreferences sharepr = this.getActivity().getSharedPreferences("thongtin",0);
+        final SharedPreferences.Editor editor= sharepr.edit();
+        String HoTen = (sharepr.getString("Name","xin chao"));
+        int iCanNang = (sharepr.getInt("Weight", 0));
+        int iChieuCao = (sharepr.getInt("Height",0));
+        String sCanNang = "Chiều Cao:"+ String.valueOf(iChieuCao)+" cm";
+        String sChieuCao = "Cân Nặng:"+String.valueOf(iCanNang)+" kg";
+
+        tvHoTen.setText(HoTen);
+        tvCanNang.setText(sCanNang);
+        tvChieuCao.setText(sChieuCao);
+
+        Button btnNhapLai = (Button)view.findViewById(R.id.buttonNhapLai);
+        btnNhapLai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editor.putBoolean("isFilledOut",false);
+                editor.commit();
+                Intent i = new Intent(getActivity(),Main2Activity.class);
+                startActivity(i);
+            }
+        });
+        return view;
     }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
