@@ -60,7 +60,7 @@
             android:text="Cân nặng" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/textViewBMI"
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:text="Chỉ số BMI" />

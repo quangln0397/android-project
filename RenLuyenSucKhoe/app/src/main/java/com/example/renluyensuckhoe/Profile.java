@@ -34,6 +34,7 @@ public class Profile extends Fragment {
     private TextView tvHoTen;
     private TextView tvCanNang;
     private TextView tvChieuCao;
+    private TextView tvBMI;
 
     private OnFragmentInteractionListener mListener;
 
@@ -76,17 +77,24 @@ public class Profile extends Fragment {
         tvHoTen = (TextView)view.findViewById(R.id.textViewHoTen);
         tvCanNang = (TextView) view.findViewById(R.id.textViewCanNang);
         tvChieuCao = (TextView) view.findViewById(R.id.textViewChieuCao);
+        tvBMI = (TextView)view.findViewById(R.id.textViewBMI);
+
+
         SharedPreferences sharepr = this.getActivity().getSharedPreferences("thongtin",0);
         final SharedPreferences.Editor editor= sharepr.edit();
         String HoTen = (sharepr.getString("Name","xin chao"));
         int iCanNang = (sharepr.getInt("Weight", 0));
         int iChieuCao = (sharepr.getInt("Height",0));
+        float fBMI = (sharepr.getFloat("BMI",0));
         String sCanNang = "Chiều Cao:"+ String.valueOf(iChieuCao)+" cm";
         String sChieuCao = "Cân Nặng:"+String.valueOf(iCanNang)+" kg";
+        String sBMI = "Chỉ số BMI:" + String.valueOf(fBMI);
 
         tvHoTen.setText(HoTen);
         tvCanNang.setText(sCanNang);
         tvChieuCao.setText(sChieuCao);
+        tvBMI.setText(sBMI);
+
 
         Button btnNhapLai = (Button)view.findViewById(R.id.buttonNhapLai);
         btnNhapLai.setOnClickListener(new View.OnClickListener() {

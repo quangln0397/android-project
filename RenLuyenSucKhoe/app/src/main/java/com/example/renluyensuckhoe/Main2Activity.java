@@ -55,9 +55,13 @@ public class Main2Activity extends AppCompatActivity {
                 String sCanNang = CanNang.getText().toString();
                 int iChieuCao = Integer.parseInt(sChieuCao);
                 int iCanNang = Integer.parseInt(sCanNang);
+                float fChieuCao = (float)iChieuCao;
+                float fCanNang = (float)iCanNang;
+                float fBMI = (fCanNang/((fChieuCao/100)*(fChieuCao/100)));
 
                 editor.putInt("Height",iChieuCao);
                 editor.putInt("Weight",iCanNang);
+                editor.putFloat("BMI", fBMI);
                 editor.commit();
                   Intent i  = new Intent(Main2Activity.this, MainActivity.class);
                   startActivity(i);
