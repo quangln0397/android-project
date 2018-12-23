@@ -3,14 +3,20 @@ package com.example.renluyensuckhoe;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -32,9 +38,18 @@ public class Profile extends Fragment {
     private String mParam2;
 
     private TextView tvHoTen;
-    private TextView tvCanNang;
-    private TextView tvChieuCao;
-    private TextView tvBMI;
+    //private TextView tvCanNang;
+    //private TextView tvChieuCao;
+    //private TextView tvBMI;
+
+    private Button button_height;
+    private Button button_weight;
+    private Button button_bmi;
+    private ImageView imageview_body;
+    private Button button_danhgiabody;
+    private Button button_date;
+
+
 
     private OnFragmentInteractionListener mListener;
 
@@ -74,27 +89,60 @@ public class Profile extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        view.setBackgroundColor(Color.parseColor("#FFFFFF"));
         tvHoTen = (TextView)view.findViewById(R.id.textViewHoTen);
-        tvCanNang = (TextView) view.findViewById(R.id.textViewCanNang);
-        tvChieuCao = (TextView) view.findViewById(R.id.textViewChieuCao);
-        tvBMI = (TextView)view.findViewById(R.id.textViewBMI);
+       // tvCanNang = (TextView) view.findViewById(R.id.textViewCanNang);
+       // tvChieuCao = (TextView) view.findViewById(R.id.textViewChieuCao);
+
+        button_height = (Button)view.findViewById(R.id.button_chieucao);
+        button_weight = (Button)view.findViewById(R.id.button_cannang);
+        button_bmi = (Button)view.findViewById(R.id.button_chisobmi);
+        imageview_body = (ImageView)view.findViewById(R.id.imageView_body);
+        button_danhgiabody = (Button)view.findViewById(R.id.button_danhgia);
+        button_date = (Button)view.findViewById(R.id.button_date);
+
 
 
         SharedPreferences sharepr = this.getActivity().getSharedPreferences("thongtin",0);
         final SharedPreferences.Editor editor= sharepr.edit();
+        String sDate = (sharepr.getString("NgayBatDau","NULL"));
+        sDate = "Ngày bắt đầu: "+ sDate;
         String HoTen = (sharepr.getString("Name","xin chao"));
+        int Gender = (sharepr.getInt("spinnerSelection",0));
         int iCanNang = (sharepr.getInt("Weight", 0));
         int iChieuCao = (sharepr.getInt("Height",0));
         float fBMI = (sharepr.getFloat("BMI",0));
+        double dBMI = Math.round(fBMI*100.0)/100.0;
         String sCanNang = "Chiều Cao:"+ String.valueOf(iChieuCao)+" cm";
         String sChieuCao = "Cân Nặng:"+String.valueOf(iCanNang)+" kg";
-        String sBMI = "Chỉ số BMI:" + String.valueOf(fBMI);
+        String sBMI = "Chỉ số BMI:" + String.valueOf(dBMI);
+        long milionseconds = (sharepr.getLong("yourmilliseconds",0));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date resultdate = new Date(milionseconds);
+        String sResultdate = sdf.format(resultdate);
+        String sMilionseconds = String.valueOf(milionseconds);
+
+
 
         tvHoTen.setText(HoTen);
-        tvCanNang.setText(sCanNang);
-        tvChieuCao.setText(sChieuCao);
-        tvBMI.setText(sBMI);
+        //tvCanNang.setText(sCanNang);
+        //tvChieuCao.setText(sChieuCao);
+        button_height.setText(sChieuCao);
+        button_weight.setText(sCanNang);
+        button_bmi.setText(sBMI);
+        //button_date.setText(sDate);
+        button_date.setText("NGÀY BẮT ĐẦU:"+sResultdate);
 
+
+
+        if(Gender == 0) {
+            ImageView avatar = (ImageView)view.findViewById(R.id.imageViewAvatar);
+            avatar.setImageResource(R.mipmap.male_gym);
+        }
+        if(Gender == 1) {
+            ImageView avatar = (ImageView)view.findViewById(R.id.imageViewAvatar);
+            avatar.setImageResource(R.mipmap.female_gym);
+        }
 
         Button btnNhapLai = (Button)view.findViewById(R.id.buttonNhapLai);
         btnNhapLai.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +154,30 @@ public class Profile extends Fragment {
                 startActivity(i);
             }
         });
+
+        if(fBMI<18.5){
+            if(fBMI<17) {
+                imageview_body.setImageResource(R.drawable.thieuan);
+                button_danhgiabody.setText("!!!Thiếu ăn 'SOS'!!!");
+            }
+            else{
+                imageview_body.setImageResource(R.drawable.hoiom);
+                button_danhgiabody.setText("Hơi ốm :((");
+            }
+        }
+        else if(fBMI>=18.5 && fBMI<=24.9)
+        {
+            imageview_body.setImageResource(R.drawable.chuan);
+            button_danhgiabody.setText("Chuẩn rồi =)))");
+        }
+        else if(fBMI>=25 && fBMI<=30){
+            imageview_body.setImageResource(R.drawable.hoimap);
+            button_danhgiabody.setText("Hơi mập :(");
+        }
+        else{
+            imageview_body.setImageResource(R.drawable.beoqua);
+            button_danhgiabody.setText("Béo quá rồi *_*!");
+        }
         return view;
     }
 

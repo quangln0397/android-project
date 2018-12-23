@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import static android.R.layout.simple_dropdown_item_1line;
 
 public class Main2Activity extends AppCompatActivity {
@@ -25,12 +28,12 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         String[] listgioitinh  = getResources().getStringArray(R.array.gioitinh);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, simple_dropdown_item_1line,listgioitinh);
-        Spinner spgioitinh = (Spinner)findViewById(R.id.spinnergt);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, R.layout.spinner_item,listgioitinh);
+        final Spinner spgioitinh = (Spinner)findViewById(R.id.spinnergt);
         spgioitinh.setAdapter(adapter1);
 
         String[] listvandong  = getResources().getStringArray(R.array.vandong);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, simple_dropdown_item_1line,listvandong);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this, R.layout.spinner_item,listvandong);
         Spinner spvandong = (Spinner)findViewById(R.id.spinnervd);
         spvandong.setAdapter(adapter2);
 
@@ -59,9 +62,24 @@ public class Main2Activity extends AppCompatActivity {
                 float fCanNang = (float)iCanNang;
                 float fBMI = (fCanNang/((fChieuCao/100)*(fChieuCao/100)));
 
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                Date date = new Date();
+                //String sdate = formatter.format(date);
+
+                long yourmilliseconds = System.currentTimeMillis();
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM dd,yyyy HH:mm");
+                Date resultdate = new Date(yourmilliseconds);
+                String sdate = formatter.format(resultdate);
+                //String sGender = (String) spgioitinh.getSelectedItem().toString();
+
+                int selectedPosition = spgioitinh.getSelectedItemPosition();
+                editor.putInt("spinnerSelection", selectedPosition);
+                editor.putLong("thoigianbatdau",yourmilliseconds);
                 editor.putInt("Height",iChieuCao);
                 editor.putInt("Weight",iCanNang);
+                editor.putString("NgayBatDau",sdate);
                 editor.putFloat("BMI", fBMI);
+
                 editor.commit();
                   Intent i  = new Intent(Main2Activity.this, MainActivity.class);
                   startActivity(i);
